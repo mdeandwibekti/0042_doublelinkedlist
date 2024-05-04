@@ -14,7 +14,7 @@ Node* START = NULL;
 
 void addNode()
 {
-	Node *newNode = new Node(); // step 1: create a new node
+	Node* newNode = new Node(); // step 1: create a new node
 	cout << "\nEnter the roll number of the student: ";
 	cin >> newNode->noMhs; // Assign value to the data field of the new node
 	cout << "\nEnter the name of the student: ";
@@ -34,15 +34,15 @@ void addNode()
 		{
 			START->prev = newNode; // step 4: make the first node point to the new node
 		}
-			newNode->prev = NULL; // step 5: make the new node point to NULL
-			START = newNode; // step 6: make the new node the first node
-		
+		newNode->prev = NULL; // step 5: make the new node point to NULL
+		START = newNode; // step 6: make the new node the first node
+
 	}
 	else
 	{
 		// insert the new node in the middle or at the end
-		Node *current = START; // step 1.a: start from the first node 
-		Node *previous = NULL; // step 1.b: previous node is NULL initially
+		Node* current = START; // step 1.a: start from the first node 
+		Node* previous = NULL; // step 1.b: previous node is NULL initially
 
 		while (current != NULL && current->noMhs < newNode->noMhs)
 		{											// step 1.c: traverse the list to find the correct position 
@@ -59,6 +59,20 @@ void addNode()
 			current->prev = newNode; // step 6: Make the previous field of the current node point to the new node
 		}
 
+		if (previous != NULL)
+
+		{
+			previous->next = newNode; // step 7: Make the next field of the previous node point to the new
+		}
+		else
+
+		{
+			// If previous is still NULL, it means newNode is now the first node
+
+			START = newNode;
+		}
+	}
+}
 
 
 
