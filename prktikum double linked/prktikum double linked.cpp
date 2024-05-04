@@ -114,6 +114,24 @@ void deleteNode()
 		return;
 	}
 
+	if (current == START)
+	{
+		START = START->next;
+		if (START != NULL)
+		{
+			START->prev = NULL;
+		}
+	}
+	else
+	{
+		previous->next = current->next;
+		if (current->next != NULL)
+		{
+			current->next->prev = previous;
+		}
+	}
+
+
 
 
 
